@@ -4,8 +4,11 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2014/15.
 
 ## Tematika
 
-Izbrali si boste temo, s katero se bo vaš projekt ukvarjal. Tukaj boste
-napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
+Tema mojega projekta je analiza vseh posameznih držav iz ZDA. V projektu bom za vsako državo podal: njeno glavno mesto - imenska, njeno velikost (podano v km^2) - številska, njeno populacijo -številska, gostoto prebivalstva (1/km^2) - številska, kolikšen del države predstavljajo vode (reke/jezera) -številska in ali med državami ZDA po velikosti spada med večje al manjše - urejenostna.
+
+Moj cilj je pridobiti idejo o porazdelitvi prebivalstva v celotni ZDA prav tako kot o vsaki državi posebej.
+
+Podatke bom za vsako državo posebej pridobil na strani Wikipedie (za Kentucky: http://en.wikipedia.org/wiki/Kentucky in enako za vse ostale), vse podatke bom shranil v tabelo, ki jo bom potem lahko uvozil v R.
 
 ## Program
 
