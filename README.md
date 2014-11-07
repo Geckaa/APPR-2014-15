@@ -4,7 +4,7 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2014/15.
 
 ## Tematika
 
-Tema mojega projekta je analiza vseh posameznih držav iz ZDA. V projektu bom za vsako državo podal: njeno glavno mesto - imenska, njeno površino (podano v km^2) - številska, njeno populacijo -številska, gostoto prebivalstva (1/km^2) - številska, kolikšen del države predstavljajo vode (reke/jezera) -številska in ali med državami ZDA po velikosti spada med večje al manjše - urejenostna.
+Tema mojega projekta je analiza vseh posameznih držav iz ZDA. V projektu bom za vsako državo podal: njeno glavno mesto - imenska, največje mesto - imenska, njeno površino (podano v km^2) - številska, njeno populacijo -številska, gostoto prebivalstva (1/km^2) - številska, in ali med državami ZDA po velikosti spada med večje al manjše - urejenostna.
 
 Moj cilj je pridobiti idejo o porazdelitvi prebivalstva v celotni ZDA prav tako kot gostoti.
 
