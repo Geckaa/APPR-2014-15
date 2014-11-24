@@ -1,19 +1,13 @@
 # 2. faza: Uvoz podatkov
 
-# Funkcija, ki uvozi podatke iz datoteke druzine.csv
-uvoziDruzine <- function() {
-  return(read.table("podatki/druzine.csv", sep = ";", as.is = TRUE,
+
+# Funkcija, ki uvozi podatke iz datoteke ZDA.csv
+uvoziDrzave <- function() {
+  return(read.table("podatki/ZDA.csv", sep = ";", as.is = TRUE,
                       row.names = 1,
-                      col.names = c("obcina", "en", "dva", "tri", "stiri"),
+                      col.names = c("State", "Capital city", "Largest city", "Population", 
+                                    "Total area", "Land area", "Percentage of population", "Size"),
                       fileEncoding = "Windows-1250"))
 }
+ZDA <- uvoziDrzave()
 
-# Zapišimo podatke v razpredelnico druzine.
-cat("Uvažam podatke o družinah...\n")
-druzine <- uvoziDruzine()
-
-# Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
-# potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo
-# datoteko, tukaj pa bi klicali tiste, ki jih potrebujemo v
-# 2. fazi. Seveda bi morali ustrezno datoteko uvoziti v prihodnjih
-# fazah.
