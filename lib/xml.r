@@ -9,12 +9,12 @@ stripByPath <- function(x, path) {
                     function(y) gsub("^\\s*(.*?)\\s*$", "\\1", xmlValue(y))))
 }
 
-uvozi.obcine <- function() {
-  url.obcine <- "http://sl.wikipedia.org/wiki/Seznam_ob%C4%8Din_v_Sloveniji"
-  doc.obcine <- htmlTreeParse(url.obcine, useInternalNodes=TRUE)
+uvozi.drzave <- function() {
+  url.drzave <- "http://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States"
+  doc.drzave <- htmlTreeParse(url.drzave, useInternalNodes=TRUE)
   
   # Poiščemo vse tabele v dokumentu
-  tabele <- getNodeSet(doc.obcine, "//table")
+  tabele <- getNodeSet(doc.drzave, "//table")
   
   # Iz druge tabele dobimo seznam vrstic (<tr>) neposredno pod
   # trenutnim vozliščem
