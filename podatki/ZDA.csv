@@ -1,51 +1,51 @@
 State;Capital;Largest city;Population;Area;LandArea;Percentage of area in US;Size
-Alabama;Montgomery;Birmingham;4,833,722;52,420 (135,767);50,645 (131,170);1.53%;Small
-Alaska;Juneau;Anchorage;735,132;665,384 (1,723,337);570,641 (1,477,950);0.23%;Large
-Arizona;Phoenix;Phoenix;6,626,624;113,990 (295,233);113,594 (294,207);2.04%;Large
-Arkansas;Little Rock;Little Rock;2,959,373;53,179 (137,733);52,035 (134,770);0.93%;Small
-California;Sacramento;Los Angeles;38,332,521;163,695 (423,968);155,779 (403,466);11.91%;Large
-Colorado;Denver;Denver;5,268,367;104,094 (269,602);103,642 (268,432);1.61%;Large
-Connecticut;Hartford;Bridgeport;3,596,080;5,543 (14,356);4,842 (12,541);1.14%;Small
-Delaware;Dover;Wilmington;925,749;2,489 (6,446);1,949 (5,048);0.29%;Small
-Florida;Tallahassee;Jacksonville;19,552,860;65,758 (170,312);53,625 (138,888);6.01%;Large
-Georgia;Atlanta;Atlanta;9,992,167;59,425 (153,910);57,513 (148,958);3.10%;Large
-Hawaii;Honolulu;Honolulu;1,404,054;10,932 (28,314);6,423 (16,635);0.43%;Small
-Idaho;Boise;Boise;1,612,136;83,569 (216,443);82,643 (214,044);0.51%;Large
-Illinois;Springfield;Chicago;12,882,135;57,914 (149,997);55,519 (143,794);4.10%;Large
-Indiana;Indianapolis;Indianapolis;6,570,902;36,420 (94,327);35,826 (92,789);2.07%;Small
-Iowa;Des Moines;Des Moines;3,090,416;56,273 (145,746);55,857 (144,669);0.97%;Small
-Kansas;Topeka;Wichita;2,893,957;82,278 (213,099);81,759 (211,755);0.91%;Large
-Kentucky;Frankfort;Louisville;4,395,295;40,408 (104,656);39,486 (102,268);1.39%;Small
-Louisiana;Baton Rouge;New Orleans;4,625,470;52,378 (135,658);43,204 (111,898);1.45%;Small
-Maine;Augusta;Portland;1,328,302;35,380 (91,634);30,843 (79,883);0.42%;Small
-Maryland;Annapolis;Baltimore;5,928,814;12,406 (32,131);9,707 (25,141);1.85%;Small
-Massachusetts;Boston;Boston;6,692,824;10,554 (27,335);7,800 (20,202);2.09%;Small
-Michigan;Lansing;Detroit;9,895,622;96,714 (250,488);56,539 (146,435);3.16%;Large
-Minnesota;St. Paul;Minneapolis;5,420,380;86,936 (225,163);79,627 (206,233);1.70%;Large
-Mississippi;Jackson;Jackson;2,991,207;48,432 (125,438);46,923 (121,530);0.95%;Small
-Missouri;Jefferson City;Kansas City;6,021,988;69,707 (180,540);68,742 (178,041);1.91%;Large
-Montana;Helena;Billings;1,015,165;147,040 (380,832);145,546 (376,962);0.32%;Large
-Nebraska;Lincoln;Omaha;1,868,516;77,348 (200,330);76,824 (198,973);0.58%;Large
-Nevada;Carson City;Las Vegas;2,790,136;110,572 (286,380);109,781 (284,331);0.86%;Large
-New Hampshire;Concord;Manchester;1,323,459;9,349 (24,214);8,953 (23,188);0.42%;Small
-New Jersey;Trenton;Newark;8,899,339;8,723 (22,592);7,354 (19,047);2.81%;Small
-New Mexico;Santa Fe;Albuquerque;2,085,287;121,590 (314,917);121,298 (314,160);0.66%;Large
-New York;Albany;New York;19,651,127;54,555 (141,297);47,126 (122,056);6.19%;Small
-North Carolina;Raleigh;Charlotte;9,848,060;53,819 (139,391);48,618 (125,920);3.05%;Small
-North Dakota;Bismarck;Fargo;723,393;70,698 (183,107);69,001 (178,712);0.21%;Large
-Ohio;Columbus;Columbus;11,570,808;44,826 (116,099);40,861 (105,830);3.69%;Small
-Oklahoma;Oklahoma City;Oklahoma City;3,850,568;69,899 (181,038);68,595 (177,660);1.20%;Large
-Oregon;Salem;Portland;3,930,065;98,379 (254,800);95,988 (248,608);1.22%;Large
-Pennsylvania;Harrisburg;Philadelphia;12,773,801;46,054 (119,279);44,743 (115,884);4.06%;Small
-Rhode Island;Providence;Providence;1,051,511;1,545 (4,002);1,034 (2,678);0.34%;Small
-South Carolina;Columbia;Columbia;4,774,839;32,020 (82,931);30,061 (77,858);1.48%;Small
-South Dakota;Pierre;Sioux Falls;844,877;77,116 (199,730);75,811 (196,350);0.26%;Large
-Tennessee;Nashville;Memphis;6,495,978;42,144 (109,152);41,235 (106,798);2.03%;Small
-Texas;Austin;Houston;26,448,193;268,596 (695,660);261,232 (676,588);8.04%;Large
-Utah;Salt Lake City;Salt Lake City;2,900,872;84,897 (219,882);82,170 (212,819);0.88%;Large
-Vermont;Montpelier;Burlington;626,63;9,616 (24,905);9,217 (23,872);0.20%;Small
-Virginia[G];Richmond;Virginia Beach;8,260,405;42,775 (110,787);39,490 (102,279);2.56%;Small
-Washington;Olympia;Seattle;6,971,406;71,298 (184,661);66,456 (172,120);2.15%;Large
-West Virginia;Charleston;Charleston;1,854,304;24,230 (62,755);24,038 (62,258);0.59%;Small
-Wisconsin;Madison;Milwaukee;5,742,713;65,496 (169,634);54,158 (140,269);1.82%;Large
-Wyoming;Cheyenne;Cheyenne;582,658;97,813 (253,335);97,093 (251,470);0.18%;Large
+Alabama;Montgomery;Birmingham;4833722;135767;13117;1.53%;Small
+Alaska;Juneau;Anchorage;735132;1723337;1477950;0.23%;Large
+Arizona;Phoenix;Phoenix;6626624;295233;294207;2.04%;Large
+Arkansas;Little Rock;Little Rock;2959373;137733;13477;0.93%;Small
+California;Sacramento;Los Angeles;38332521;423968;403466;11.91%;Large
+Colorado;Denver;Denver;5268367;269602;268432;1.61%;Large
+Connecticut;Hartford;Bridgeport;3596080;14356;12541;1.14%;Small
+Delaware;Dover;Wilmington;925749;6446;5048;0.29%;Small
+Florida;Tallahassee;Jacksonville;19552860;170312;138888;6.01%;Large
+Georgia;Atlanta;Atlanta;9992167;15391;148958;3.10%;Large
+Hawaii;Honolulu;Honolulu;1404054;28314;16635;0.43%;Small
+Idaho;Boise;Boise;1612136;216443;214044;0.51%;Large
+Illinois;Springfield;Chicago;12882135;149997;143794;4.10%;Large
+Indiana;Indianapolis;Indianapolis;6570902;94327;92789;2.07%;Small
+Iowa;Des Moines;Des Moines;3090416;145746;144669;0.97%;Small
+Kansas;Topeka;Wichita;2893957;213099;211755;0.91%;Large
+Kentucky;Frankfort;Louisville;4395295;104656;102268;1.39%;Small
+Louisiana;Baton Rouge;New Orleans;4625470;135658;111898;1.45%;Small
+Maine;Augusta;Portland;1328302;91634;79883;0.42%;Small
+Maryland;Annapolis;Baltimore;5928814;32131;25141;1.85%;Small
+Massachusetts;Boston;Boston;6692824;27335;20202;2.09%;Small
+Michigan;Lansing;Detroit;9895622;250488;146435;3.16%;Large
+Minnesota;St. Paul;Minneapolis;5420380;225163;206233;1.70%;Large
+Mississippi;Jackson;Jackson;2991207;125438;12153;0.95%;Small
+Missouri;Jefferson City;Kansas City;6021988;18054;178041;1.91%;Large
+Montana;Helena;Billings;1015165;380832;376962;0.32%;Large
+Nebraska;Lincoln;Omaha;1868516;20033;198973;0.58%;Large
+Nevada;Carson City;Las Vegas;2790136;28638;284331;0.86%;Large
+New Hampshire;Concord;Manchester;1323459;24214;23188;0.42%;Small
+New Jersey;Trenton;Newark;8899339;22592;19047;2.81%;Small
+New Mexico;Santa Fe;Albuquerque;2085287;314917;31416;0.66%;Large
+New York;Albany;New York;19651127;141297;122056;6.19%;Small
+North Carolina;Raleigh;Charlotte;9848060;139391;12592;3.05%;Small
+North Dakota;Bismarck;Fargo;723393;183107;178712;0.21%;Large
+Ohio;Columbus;Columbus;11570808;116099;10583;3.69%;Small
+Oklahoma;Oklahoma City;Oklahoma City;3850568;181038;17766;1.20%;Large
+Oregon;Salem;Portland;3930065;2548;248608;1.22%;Large
+Pennsylvania;Harrisburg;Philadelphia;12773801;119279;115884;4.06%;Small
+Rhode Island;Providence;Providence;1051511;4002;2678;0.34%;Small
+South Carolina;Columbia;Columbia;4774839;82931;77858;1.48%;Small
+South Dakota;Pierre;Sioux Falls;844877;19973;19635;0.26%;Large
+Tennessee;Nashville;Memphis;6495978;109152;106798;2.03%;Small
+Texas;Austin;Houston;26448193;69566;676588;8.04%;Large
+Utah;Salt Lake City;Salt Lake City;2900872;219882;212819;0.88%;Large
+Vermont;Montpelier;Burlington;62663;24905;23872;0.20%;Small
+Virginia[G];Richmond;Virginia Beach;8260405;110787;102279;2.56%;Small
+Washington;Olympia;Seattle;6971406;184661;17212;2.15%;Large
+West Virginia;Charleston;Charleston;1854304;62755;62258;0.59%;Small
+Wisconsin;Madison;Milwaukee;5742713;169634;140269;1.82%;Large
+Wyoming;Cheyenne;Cheyenne;582658;253335;25147;0.18%;Large
