@@ -11,3 +11,5 @@ pridobil iz strani http://en.wikipedia.org/wiki/List_of_U.S._states_and_territor
 http://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States. Nekatere podatke sem odstranil, 
 in vse skupaj podal v eni sami tabeli. Tabela je shranjena v mapi "Podatki".
 Ko poženemo program v mapiuvoz.r ta vrne urejeno tabelo.
+Grafe poženemo z programom grafi.R ki je v mapi Slike. Pdf slika grafa se shrani v mapo
+grafi.pdf,  ki je prav tako v mapi Slike.
