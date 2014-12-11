@@ -3,6 +3,7 @@
 \usepackage[slovene]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{graphicx}
+\usepackage{hyperref}
 
 \pagestyle{plain}
 
@@ -14,30 +15,28 @@ Analiza podatkov s programom R}
 
 \section{ZDA - populacija}
 
-Tema mojega projekta je analiza vseh posameznih držav iz ZDA. V projektu bom za vsako državo\n podal: njeno glavno mesto - imenska, največje mesto - imenska, njeno površino (podano v mi^2 in km^2)\n - številska, njeno površino zemlje (podano v km^2) - številska, njeno populacijo -številska,\n številska delež prebivalstva ZDA  - številska, in ali po velikosti sodi med večje ali manjše\n
-- urejenostna.
+Tema mojega projekta je analiza vseh posameznih držav iz ZDA. V projektu bom za vsako državo podal: njeno glavno mesto - imenska, največje mesto - imenska, njeno površino (podano v $km^2$) - številska, njeno površino zemlje (podano v $km^2$) - številska, njeno populacijo -številska, številska delež prebivalstva ZDA številska, in ali po velikosti sodi med večje ali manjše- urejenostna.
 
 Moj cilj je pridobiti idejo o porazdelitvi prebivalstva v celotni ZDA prav tako kot gostoti.
 
-Podatke sem pridobil na strani Wikipedie http://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States in 
-http://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_population.
+Podatke sem pridobil na strani Wikipedie \url{http://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States} in \url{http://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_population}.
 
 \section{Obdelava, uvoz in čiščenje podatkov}
 
-Podatke sem uvozil v obliki csv (podatki ločeni z vejico). Te podatke sem prej imel shranjene v\n Excel-ovi tabeli. Podatke sem\n 
-pridobil iz strani http://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_area ter\n 
-http://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States. Nekatere\n podatke sem odstranil, in vse skupaj podal v eni sami tabeli. Tabela je shranjena v mapi "Podatki".\n
-Ko poženemo program v mapi uvoz.r ta vrne urejeno tabelo.\n
+Podatke sem uvozil v obliki csv (podatki ločeni z vejico). Te podatke sem prej imel shranjene v Excel-ovi tabeli. Podatke sem
+pridobil iz strani \url{http://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_area} ter
+\url{http://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States}. Nekatere podatke sem odstranil, in vse skupaj podal v eni sami tabeli. Tabela je shranjena v mapi "Podatki".
+Ko poženemo program v mapi uvoz.r ta vrne urejeno tabelo.
 
 \section{Analiza in vizualizacija podatkov}
 
-\includegraphics{../slike/povprecna_druzina.pdf}
+Grafe poženemo z programom grafi.R ki je v mapi Slike. Pdf slika grafa se shrani v mapo
+grafi.pdf,  ki je prav tako v mapi Slike.
 
-Grafe poženemo z programom grafi.R ki je v mapi Slike. Pdf slika grafa se shrani v mapo\n
-grafi.pdf,  ki je prav tako v mapi Slike.\n
+\includegraphics{../slike/grafi.pdf}
 
 \section{Napredna analiza podatkov}
 
-\includegraphics{../slike/naselja.pdf}
+%\includegraphics{../slike/naselja.pdf}
 
 \end{document}
