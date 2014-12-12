@@ -4,6 +4,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{pdfpages}
 
 \pagestyle{plain}
 
@@ -33,7 +34,7 @@ Ko poženemo program v mapi uvoz.r ta vrne urejeno tabelo.
 Grafe poženemo z programom grafi.R ki je v mapi Slike. Pdf slika grafa se shrani v mapo
 grafi.pdf,  ki je prav tako v mapi Slike.
 
-\includegraphics{../slike/grafi.pdf}
+\includepdf[pages={1-2}]{../slike/grafi.pdf}
 
 \section{Napredna analiza podatkov}
 
