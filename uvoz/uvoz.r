@@ -9,4 +9,3 @@ uvoziDrzave <- function() {
 }
 cat("Uvažamo podatke o državah. \n")
 ZDA <- uvoziDrzave()
-View(ZDA)
