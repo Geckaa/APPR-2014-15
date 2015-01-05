@@ -6,20 +6,22 @@ library(maptools)
 gpclibPermit()
 
 #Narišemo zemljevid (zaradi preglednosti sem izpustil zvezno državo Alasko)
-pdf("slike/drzave_zda.pdf", width=6, height=4)
+pdf("D:/APPR-2014-15/slike/drzave_zda.pdf", width=6, height=4)
 
-USA <- readShapeLines("D:./././podatki/usa/statesp020.shp")
+USA <- readShapeLines("D:/APPR-2014-15/podatki/usa/statesp020.shp")
 
 nocemo <- c("Alaska", "Hawaii", "Puerto Rico", "U.S. Virgin Islands")
 contiguous.states <- USA[!(USA$STATE %in% nocemo),]
-barve= if contiguous.states$AREA > 10, ["red"], ["green"]
-plot(contiguous.states, col=barve)
+plot(contiguous.states)
+
 
 #Vrišemo glavna mesta na zemljevid
+capitals <- read.csv("D:/APPR-2014-15/podatki/uscapitals.csv", row.names = 1)
+points(coordinates(capitals[c("long", "lat")]),
+       col = "red",
+       pch = 10, cex = 0.2)
 
 text(coordinates(capitals[c("long", "lat")]), labels = capitals$capital,
-     pos = 1, cex = 0.6, offset = 0.3)
-
-
+     pos = 1, cex = 0.4, offset = 0.1)
 
 dev.off()
