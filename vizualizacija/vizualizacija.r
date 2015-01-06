@@ -11,8 +11,8 @@ pdf("D:/APPR-2014-15/slike/drzave_zda.pdf", width=6, height=4)
 USA <- readShapeLines("D:/APPR-2014-15/podatki/usa/statesp020.shp")
 
 nocemo <- c("Alaska", "Hawaii", "Puerto Rico", "U.S. Virgin Islands")
-contiguous.states <- USA[!(USA$STATE %in% nocemo),]
-plot(contiguous.states)
+states <- USA[!(USA$STATE %in% nocemo),]
+plot(states)
 
 
 #Vrišemo glavna mesta na zemljevid
