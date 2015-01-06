@@ -5,7 +5,7 @@ library(sp)
 library(maptools)
 gpclibPermit()
 
-#Narišemo zemljevid (zaradi preglednosti sem izpustil zvezno državo Alasko)
+#Narišemo zemljevid (zaradi preglednosti sem izpustil zvezno državo Alasko in Havaje)
 pdf("D:/APPR-2014-15/slike/drzave_zda.pdf", width=6, height=4)
 
 USA <- readShapeLines("D:/APPR-2014-15/podatki/usa/statesp020.shp")
