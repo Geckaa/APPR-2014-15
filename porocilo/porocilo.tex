@@ -9,12 +9,39 @@
 \pagestyle{plain}
 
 \begin{document}
-\title{Poročilo pri predmetu \\
-Analiza podatkov s programom R}
-\author{Rok Zadravec}
-\maketitle
 
-\section{ZDA - populacija}
+\begin{titlepage}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\center
+
+\textsc{\LARGE Fakulteta za matematiko in fiziko}\\[3 cm]
+\textsc{\Large Poročilo pri predmetu}\\[0.5cm]
+\textsc{\large Analiza podatkov s programom R}\\[2 cm]
+\HRule \\[0.4cm]
+{ \huge \bfseries ZDA - populacija}\\[0.4cm] 
+\HRule \\[6 cm]
+
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Avtor:}\\
+Rok \textsc{Zadravec}
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Mentor:} \\
+Dr. Janoš \textsc{Vidali}
+\end{flushright}
+\end{minipage}\\[2 cm]
+
+{\large \today}\\[3cm] 
+
+
+\end{titlepage}
+
+\section{Izbira teme}
 
 Tema mojega projekta je analiza vseh posameznih držav iz ZDA. V projektu bom za vsako državo podal: njeno glavno mesto - imenska, največje mesto - imenska, njeno površino (podano v $km^2$) - številska, njeno površino zemlje (podano v $km^2$) - številska, njeno populacijo -številska, številska delež prebivalstva ZDA številska, in ali po velikosti sodi med večje ali manjše- urejenostna.
 
@@ -22,24 +49,40 @@ Moj cilj je pridobiti idejo o porazdelitvi prebivalstva v celotni ZDA prav tako 
 
 Podatke sem pridobil na strani Wikipedie \url{http://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States} in \url{http://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_population}.
 
+\pagebreak
+
 \section{Obdelava, uvoz in čiščenje podatkov}
 
-Podatke sem uvozil v obliki csv (podatki ločeni z vejico). Te podatke sem prej imel shranjene v Excel-ovi tabeli. Podatke sem
-pridobil iz strani \url{http://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_area} ter
-\url{http://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States}. Nekatere podatke sem odstranil, in vse skupaj podal v eni sami tabeli. Tabela je shranjena v mapi "Podatki".
-Ko poženemo program v mapi uvoz.r ta vrne urejeno tabelo.
+Podatke sem uvozil v obliki csv (podatki ločeni z vejico). Te podatke sem imel predhodno shranjene v Excel-ovi tabeli. Podatke sem pridobil iz strani 
+\url{http://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_area} ter
+\url{http://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States}. 
+Nekatere podatke sem zaradi preglednosti (prav tako zaradi njihove nepomembnosti za to kar nas zanima) odstranil, podatke iz obeh strani sem potem tudi združil v eno samo tabelo, kjer so podani podatki, ki nas zanimajo. Excelova tabela v obliki csv je shranjena v mapi "Podatki".
+Ko poženemo program v mapi uvoz.r uvozimo to urejeno tabelo.
+Prav tako sem izdelal histogram populacije po posameznih državah.
+Grafe poženemo z programom grafi.R ki je v mapi "Slike". Pdf slika grafov se shrani v 
+grafi.pdf ter grafi2.pdf,  ki je prav tako v mapi "Slike".
+
+\vfill
+\includegraphics[width=\textwidth]{../slike/grafi2.pdf}
+
+V grafu je prikazano število prebivalstva za vse države v ZDA.
+
+
+\includegraphics[width=\textwidth]{../slike/grafi.pdf}
+
+Bolj pregleden prikaz populacije v prvih šestih državah v ZDA (po abecedi).
+
+\pagebreak
 
 \section{Analiza in vizualizacija podatkov}
 
-Grafe poženemo z programom grafi.R ki je v mapi Slike. Pdf slika grafa se shrani v mapo
-grafi.pdf,  ki je prav tako v mapi Slike. Na zemljevidu ZDA so označena glavna mesta, graf pa barvno predstvalja populacijo po državah.
+Uvozil sem zemljevid zveznih držav. Zaradi boljše preglednosti sem odstranil Aljasko in otoke, tako da mi je ostala zgolj kontinentalna Amerika. Uporabil sem Excelovo datoteko uscapitals.csv, kjer so navedena glavna mesta ter njihova zemljepisna širina in dolžina. To mi je omogočilo, da sem na zemljevidu označil glavna mesta vseh držal, zraven jim pa še pripisal imena. Graf je pobarvan glede na populacijo posamezne države. Večje kot je število prebivalstva, temneje je tista država pobarvana.
 
-\includepdf[pages={1-2}]{../slike/grafi.pdf}
+\includegraphics[width=\textwidth]{../slike/drzave_zda.pdf}
 
+Zemljevid zveznih držav z dodanimi pripadajočimi glanvimi mesti.
+
+\newpage
 \section{Napredna analiza podatkov}
-
-
-
-\includepdf[pages={1}]{../slike/drzave_zda.pdf}
 
 \end{document}
