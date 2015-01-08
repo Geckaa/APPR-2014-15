@@ -5,18 +5,26 @@ library(sp)
 library(maptools)
 gpclibPermit()
 
-#Narišemo zemljevid (zaradi preglednosti sem izpustil zvezno državo Alasko in Havaje)
-pdf("D:/APPR-2014-15/slike/drzave_zda.pdf", width=6, height=4)
+source("lib/uvozi.zemljevid.r")
 
-USA <- readShapeLines("D:/APPR-2014-15/podatki/usa/statesp020.shp")
+pdf("slike/drzave_zda.pdf")
+
+USA <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2/shp/USA_adm.zip",
+                       "USA", "USA_adm1.shp", mapa = "zemljevidi")
 
 nocemo <- c("Alaska", "Hawaii", "Puerto Rico", "U.S. Virgin Islands")
-states <- USA[!(USA$STATE %in% nocemo),]
-plot(states)
+states <- USA[!(USA$NAME_1 %in% nocemo),]
+
+m <- match(states$NAME_1, rownames(ZDA))
+pop <- ZDA[m,5] # populacija je v 5. stolpcu
+n <- 4 # 4 kategorije
+q <- quantile(pop, (1:n)/n, na.rm = TRUE)
+barve <- topo.colors(n)
+plot(states, col = barve[sapply(pop, function(x) which(x <= q)[1])])
 
 
 #Vrišemo glavna mesta na zemljevid
-capitals <- read.csv("D:/APPR-2014-15/podatki/uscapitals.csv", row.names = 1)
+capitals <- read.csv("podatki/uscapitals.csv", row.names = 1)
 points(coordinates(capitals[c("long", "lat")]),
        col = "red",
        pch = 10, cex = 0.2)
