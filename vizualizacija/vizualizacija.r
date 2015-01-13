@@ -20,7 +20,7 @@ pop <- ZDA[m,5] # populacija je v 5. stolpcu
 n <- 4 # 4 kategorije
 q <- quantile(pop, (1:n)/n, na.rm = TRUE)
 barve <- topo.colors(n)
-plot(states, col = barve[sapply(pop, function(x) which(x <= q)[1])])
+plot(states, border = "dimgray", col = barve[sapply(pop, function(x) which(x <= q)[1])])
 
 
 #Vrišemo glavna mesta na zemljevid
