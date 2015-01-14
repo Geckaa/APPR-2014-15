@@ -9,18 +9,19 @@ source("lib/uvozi.zemljevid.r")
 
 pdf("slike/drzave_zda.pdf")
 
-USA <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2/shp/USA_adm.zip",
-                       "USA", "USA_adm1.shp", mapa = "zemljevidi")
+# USA1 <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2/shp/USA_adm.zip",
+#                        "USA", "USA_adm1.shp", mapa = "zemljevidi")
+USA <- readShapeLines("podatki/ZDA/states.shp")
 
 nocemo <- c("Alaska", "Hawaii", "Puerto Rico", "U.S. Virgin Islands")
-states <- USA[!(USA$NAME_1 %in% nocemo),]
+states <- USA[!(USA$STATE_NAME %in% nocemo),]
 
-m <- match(states$NAME_1, rownames(ZDA))
+m <- match(states$STATE_NAME, rownames(ZDA))
 pop <- ZDA[m,5] # populacija je v 5. stolpcu
 n <- 4 # 4 kategorije
 q <- quantile(pop, (1:n)/n, na.rm = TRUE)
 barve <- topo.colors(n)
-plot(states, border = "dimgray", col = barve[sapply(pop, function(x) which(x <= q)[1])])
+plot(states, col = barve[sapply(pop, function(x) which(x <= q)[1])])
 
 
 #Vrišemo glavna mesta na zemljevid
