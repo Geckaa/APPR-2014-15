@@ -7,7 +7,7 @@ gpclibPermit()
 
 source("lib/uvozi.zemljevid.r")
 
-pdf("slike/drzave_zda.pdf")
+#pdf("slike/drzave_zda.pdf")
 
 # USA1 <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2/shp/USA_adm.zip",
 #                        "USA", "USA_adm1.shp", mapa = "zemljevidi")
@@ -25,7 +25,7 @@ plot(states, col = barve[sapply(pop, function(x) which(x <= q)[1])])
 
 
 #Vrišemo glavna mesta na zemljevid
-capitals <- read.csv("podatki/uscapitals.csv", row.names = 1)
+capitals <- read.csv("podatki//uscapitals_1.csv", row.names = 1)
 points(coordinates(capitals[c("long", "lat")]),
        col = "red",
        pch = 10, cex = 0.2)
@@ -33,4 +33,4 @@ points(coordinates(capitals[c("long", "lat")]),
 text(coordinates(capitals[c("long", "lat")]), labels = capitals$capital,
      pos = 1, cex = 0.4, offset = 0.1)
 
-dev.off()
+#dev.off()
