@@ -11,7 +11,8 @@ pdf("slike/drzave_zda.pdf")
 
 # USA1 <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2/shp/USA_adm.zip",
 #                        "USA", "USA_adm1.shp", mapa = "zemljevidi")
-USA <- readShapeLines("podatki/ZDA/states.shp")
+USA <- uvozi.zemljevid("http://audrey.fmf.uni-lj.si/states_21basic.zip",
+                          "USA", "states.shp", mapa = "zemljevid")
 
 nocemo <- c("Alaska", "Hawaii", "Puerto Rico", "U.S. Virgin Islands")
 states <- USA[!(USA$STATE_NAME %in% nocemo),]
