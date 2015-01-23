@@ -43,45 +43,57 @@ Dr. Janoš \textsc{Vidali}
 
 \section{Izbira teme}
 
-Tema mojega projekta je analiza vseh posameznih držav iz ZDA. V projektu bom za vsako državo podal: njeno glavno mesto - imenska, največje mesto - imenska, njeno površino (podano v $mi^2$) - številska, njeno površino zemlje (podano v $mi^2$) - številska, njeno populacijo -številska, in če po velikosti sodi med večje ali manjše - urejenostna.
+Tema mojega projekta je analiza vseh posameznih držav iz ZDA. V projektu bom za vsako državo podal: njeno glavno mesto - imenska, največje mesto - imenska, njeno površino (podano v $mi^2$) - številska, njeno površino zemlje (podano v $mi^2$) - številska, površino ki jo prekriva voda (podano v $mi^2$)- številska, njeno populacijo - številska, in če po velikosti sodi med večje ali manjše - urejenostna. Po potrebi bom še dodajal druge zadeve, ki bi se mi zdele zanimive za nadaljno analizo.
 
-Moj cilj je pridobiti idejo o porazdelitvi prebivalstva v celotni ZDA prav tako kot gostoti.
+Zanimalo me je prebivalstvo v združenih državah. Moj cilj je pridobiti vsaj okvirno idejo o porazdelitvi prebivalstva v ZDA (območja z večjo poseljenostjo) prav tako kot o samih lastnostih posameznih držav. Zanimivo se mi je zdelo tudi pogledati kako se je spreminjala količina
+prebivalstva v celotnih ZDA.
 
-Podatke sem pridobil na strani Wikipedie \url{http://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States} in \url{http://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_population}.
+Podatke sem pridobil na straneh Wikipedie \url{http://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States}, \url{http://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_population} in \url{http://en.wikipedia.org/wiki/Demographics_of_the_United_States}.
 
 \pagebreak
 
 \section{Obdelava, uvoz in čiščenje podatkov}
 
-Podatke sem uvozil v obliki csv (podatki ločeni z vejico). Te podatke sem imel predhodno shranjene v Excel-ovi tabeli. Podatke sem pridobil iz strani 
-\url{http://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_area} ter
-\url{http://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States}. 
-Nekatere podatke sem zaradi preglednosti (prav tako zaradi njihove nepomembnosti za to kar nas zanima) odstranil, podatke iz obeh strani sem potem tudi združil v eno samo tabelo, kjer so podani podatki, ki nas zanimajo. Excelova tabela v obliki csv je shranjena v mapi "Podatki".
-Uvoz iz CSV je zakomentiran.
-Prav tako je narejen uvoz iz XML, ki pa se opravi ob zagonu programa uvoz.r. V tabeli je dodana spremenljivka "Size", ki nam pove ali med državami ZDA posamezna država sodi med večje, povprečne ali pa manjše. Vrne urejeno tabelo, ki jo kasneje tudi uporabim za nadaljno analizo.
-Prav tako sem izdelal histogram populacije po posameznih državah.
-Grafe poženemo z programom grafi.R ki je v mapi "Slike". Pdf slika grafov se shrani v 
-grafi.pdf ter grafi2.pdf,  ki je prav tako v mapi "Slike".
+Podatke sem uvozil v obliki csv (comma-separated value - podatki ločeni z vejico). Te podatke sem imel predhodno shranjene v Excel-ovi tabeli. Podatke sem pridobil iz strani navedenih v sklopu "Izbira teme". 
+Nekatere podatke sem zaradi preglednosti (prav tako zaradi njihove nepomembnosti za to kar nas zanima) odstranil, podatke iz obeh strani sem potem tudi združil v eno samo tabelo, kjer so podani podatki, ki nas zanimajo. Tabeli sem tudi dodal urejenostno spremenljivko velikosti, ki za državo pove ali je večja ali manjša. Excelova tabela v obliki csv je shranjena v mapi "Podatki".
+Uvoza iz CSV v nadaljnem analiziranju podatkov ne uporabljam, zato sem ga zakomentiral. Imam ga pa ker sem ga na začetku nameraval uporabiti, a je prišlo do spremembe.
+Kot CSV datoteka je uvožena sprememba populacije v ZDA po letih.
+
+Prav tako je narejen uvoz iz XML, ki se opravi ob zagonu programa uvoz.r. V tabelo sem dodal več spremenljivk, med njimi eno urejenostno in tri številske, ki se mi jih je zdelo pomembno 
+izpostavit. Urejenostna spremenljivka je v stolpcu "Size", ki države glede na velikost razdeli na 3 kategorije. Dodal sem še gostoto prebivalstva (izračunana iz podatkov, ki sem jih že imel v tabeli), prav tako kot delež površine kopnega v državi in gostoto prebivalstva če namesto celotne površine države gledamo samo površino kopnega. To tabelo tudi uporabljam v nadaljnih fazah.
+
+V tej fazi sem še izdelal graf, natančneje histogram, držav glede na populacijo in glede na površino.
+Kot zanimivost je dodan tudi graf populacije celotne ZDA od leta 1935 pa do leta 2013. 
+
+Grafe poženemo z programom grafi.R ki je v mapi "Slike". Pdf sliki grafov sta shranjeni v 
+grafi.pdf ter grafi2.pdf in grafi3.pdf,  ki sta prav tako v mapi "Slike".
 
 \includegraphics[width=\textwidth]{../slike/grafi2.pdf}
 
-V grafu je prikazano število prebivalstva za vse države v ZDA.
+V grafu je prikazano število prebivalstva za posamezne države v ZDA. Države so razporejene po količini prebivalstva v padajočem vrstenem redu.
 
 \includegraphics[width=\textwidth]{../slike/grafi.pdf}
 
-Graf velikosti posameznih zveznih držav (v kvadratnih miljah).
+Graf velikosti posameznih zveznih držav (podan v kvadratnih miljah). Države si sledijo po abecednem vrstnem redu.
+
+\includegraphics[width=\textwidth]{../slike/grafi3.pdf}
+
+Graf predstavlja rast prebivalstva v ZDA v zadnjih 80-ih letih.
 
 \pagebreak
 
 \section{Analiza in vizualizacija podatkov}
 
-Uvozil sem zemljevid zveznih držav. Zaradi boljše preglednosti sem odstranil Aljasko in otoke, tako da mi je ostala zgolj kontinentalna Amerika. Uporabil sem Excelovo datoteko uscapitals.csv, kjer so navedena glavna mesta ter njihova zemljepisna širina in dolžina. To mi je omogočilo, da sem na zemljevidu označil glavna mesta vseh držal, zraven jim pa še pripisal imena. Graf je pobarvan glede na populacijo posamezne države.
+Odločil sem se, da bom na začetku države analiziral zgolj glede na število prebivalcev. Uvozil sem zemljevid zveznih držav(datoteka dostopna na \url{http://biogeo.ucdavis.edu/data/gadm2/shp/USA_adm.zip}). Če bi izrisal zemljevid vseh zveznih držav (vključno z Aljasko in Havaji) ne bi bilo dobro. Torej sem se odločil, da izpustim Aljasko, Havaje Porto Rico in Deviške otoke zaradi
+preglednosti. V tej fazi sem izrisal zemljevid, ki je izrisal zgolj meje posameznih držav.
+Zemljevid sem pobarval s štirimi barvami. Države so glede na populacijo razdeljene na štiri enako velike skupine, vsaka od teh skupin pa je svoje barve.
+Poiskal sem datoteko, ki je vsebovala vse zvezne države in njihova pripadajoča glavna mesta, podana z zemljepisno dolžino in širino. Ti podatki so shranjeni v Excelovi datoteki uscapitals.csv. To mi je omogočilo, da sem na zemljevidu označil glavna mesta vseh držav, zraven jim pa še pripisal imena. Zaradi boljše preglednosti sem v manjših državah izpustil izpis glavnega mesta, in kot indikator ostaja zgolj točka, kje se to nahaja. To sem storil tako, da sem v CSV datoteki namesto glavnega mesta naredil prazen prostor.
 
 \makebox[\textwidth][c]{
 \includegraphics[width=1.2\textwidth]{../slike/drzave_zda.pdf}
 
 }
-Pobarvan zemljevid zveznih držav s pripadajočimi glanvimi mesti.
+Pobarvan zemljevid zveznih držav s pripadajočimi glavnimi mesti.
 
 \newpage
 \section{Napredna analiza podatkov}
