@@ -7,8 +7,15 @@
 #                                   "Total area", "Land area", "Percentage of population", "Size"),
 #                     fileEncoding = "Windows-1250"))
 # }
-# cat("Uvažamo podatke o državah. \n")
-# ZDA <- uvoziDrzave()
+# ZDA1 <- uvoziDrzave()
+
+# Funkcija, ki uvozi podatke iz datoteke US_demographics.csv
+demographics <- function() {
+  return(read.table("podatki/US_demographics.csv", sep = ";", as.is = TRUE, skip = 1,
+                    col.names = c("Year", "Population x1000"),
+                    fileEncoding = "Windows-1250"))
+}
+USA_demographics <- demographics()
 
 source("lib/xml.r")
 ZDA <- uvozi.drzave()
