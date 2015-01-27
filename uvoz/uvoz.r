@@ -31,6 +31,9 @@ Size <- factor(stolpec, levels = moznosti, ordered = TRUE)
 detach(ZDA)
 ZDA <- data.frame(ZDA, Size)
 
+ZDA$Statehood <- NULL
+ZDA$House.seat.s. <- NULL
+
 #dodal stolpec z gostoto prebivalstva
 ZDA["Pop.Density"] <- NA
 ZDA$Pop.Density <- ZDA$Population..2013.est. / ZDA$ Total.area.in.mi2..km2.
