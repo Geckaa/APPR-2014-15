@@ -34,17 +34,18 @@ ZDA <- data.frame(ZDA, Size)
 ZDA$Statehood <- NULL
 ZDA$House.seat.s. <- NULL
 
-#dodal stolpec z gostoto prebivalstva
+#Tabeli ZDA dodal stolpec z gostoto prebivalstva
 ZDA["Pop.Density"] <- NA
 ZDA$Pop.Density <- ZDA$Population..2013.est. / ZDA$ Total.area.in.mi2..km2.
 
-#gostota prebivalstva (gledano samo na površino zemlje)
+#Tabeli ZDA dodal stolpec z gostoto prebivalstva (gledano samo na površino zemlje)
 ZDA["Pop.Density.per.Land.area"] <- NA
 ZDA$Pop.Density.per.Land.area <- ZDA$Population..2013.est. / ZDA$Land.area.in.mi2..km2.
 
-#kolikšen delež države je zemeljski
+#Tabeli ZDA dodal stolpec s podatkom kolikšen delež države je kopnega
 ZDA["Percentage.of.Land.area"] <- NA
 ZDA$Percentage.of.Land.area <-ZDA$Land.area.in.mi2..km2. / ZDA$Total.area.in.mi2..km2.
 
-#tabela v kateri so države namesto po ebecedi razporejene po populaciji
-ZDA_po_pop. <- ZDA[order(ZDA$Population..2013.est., decreasing=TRUE),]
+#Tabela  v kateri so države namesto po ebecedi razporejene po populaciji
+#To sem naredil da sem narisal graf kjer so države razporejene po populaciji namesti abecedi
+ZDA_pop. <- ZDA[order(ZDA$Population..2013.est., decreasing=TRUE),]
