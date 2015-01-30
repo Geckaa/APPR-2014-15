@@ -43,7 +43,7 @@ Dr. Janoš \textsc{Vidali}
 
 \section{Izbira teme}
 
-Tema mojega projekta je analiza vseh posameznih držav iz ZDA. V projektu bom za vsako državo podal: njeno glavno mesto - imenska, največje mesto - imenska, njeno površino (podano v $mi^2$) - številska, njeno površino zemlje (podano v $mi^2$) - številska, površino ki jo prekriva voda (podano v $mi^2$)- številska, njeno populacijo - številska, in če po velikosti sodi med večje ali manjše - urejenostna. Po potrebi bom še dodajal druge zadeve, ki bi se mi zdele zanimive za nadaljno analizo.
+Tema mojega projekta je analiza vseh posameznih držav iz ZDA. V projektu bom za vsako državo podal njeno glavno mesto, največje mesto, njeno površino, njeno površino zemlje, njeno populacijo in če po velikosti sodi med večje ali manjše. Po potrebi bom še dodajal druge zadeve, ki bi se mi zdele zanimive za nadaljno analizo.
 
 Zanimalo me je prebivalstvo v združenih državah. Moj cilj je pridobiti vsaj okvirno idejo o porazdelitvi prebivalstva v ZDA (območja z večjo poseljenostjo) prav tako kot o samih lastnostih posameznih držav. Zanimivo se mi je zdelo tudi pogledati kako se je spreminjala količina
 prebivalstva v celotnih ZDA.
@@ -54,31 +54,59 @@ Podatke sem pridobil na straneh Wikipedie \url{http://en.wikipedia.org/wiki/List
 
 \section{Obdelava, uvoz in čiščenje podatkov}
 
-Podatke sem uvozil v obliki csv (comma-separated value - podatki ločeni z vejico). Te podatke sem imel predhodno shranjene v Excel-ovi tabeli. Podatke sem pridobil iz strani navedenih v sklopu "Izbira teme". 
-Nekatere podatke sem zaradi preglednosti (prav tako zaradi njihove nepomembnosti za to kar nas zanima) odstranil, podatke iz obeh strani sem potem tudi združil v eno samo tabelo, kjer so podani podatki, ki nas zanimajo. Tabeli sem tudi dodal urejenostno spremenljivko velikosti, ki za državo pove ali je večja ali manjša. Excelova tabela v obliki csv je shranjena v mapi "Podatki".
-Uvoza iz CSV v nadaljnem analiziranju podatkov ne uporabljam, zato sem ga zakomentiral. Imam ga pa ker sem ga na začetku nameraval uporabiti, a je prišlo do spremembe.
-Kot CSV datoteka je uvožena sprememba populacije v ZDA po letih.
+Podatke sem uvozil v obliki csv (comma-separated value - podatki ločeni z vejico). Te podatke sem imel predhodno shranjene v Excel-ovi tabeli. Podatki so pridobljeni s strani \url{http://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_population}. \\
 
-Prav tako je narejen uvoz iz XML, ki se opravi ob zagonu programa uvoz.r. V tabelo sem dodal več spremenljivk, med njimi eno urejenostno in tri številske, ki se mi jih je zdelo pomembno 
-izpostavit. Urejenostna spremenljivka je v stolpcu "Size", ki države glede na velikost razdeli na 3 kategorije. Dodal sem še gostoto prebivalstva (izračunana iz podatkov, ki sem jih že imel v tabeli), prav tako kot delež površine kopnega v državi in gostoto prebivalstva če namesto celotne površine države gledamo samo površino kopnega. To tabelo tudi uporabljam v nadaljnih fazah.
+Nekatere podatke sem zaradi preglednosti odstranil, tabeli pa prav tako dodal stolpce s podatki najdenimi na več različnih straneh. Tabeli sem tudi dodal urejenostno spremenljivko velikosti, ki za državo pove ali je večja ali manjša. Vse to (odstranjevanje, dodajanje in urejanje) sem naredil v Excelu. Excelova tabela v obliki csv je shranjena v mapi "Podatki".\\
+
+Uvoza iz CSV v nadaljnem analiziranju podatkov ne uporabljam, ampak ga imam vključenega. Na začetku sem ga nameraval uporabiti, a je prišlo do spremembe.
+Kot CSV datoteka je uvožena tudi celotna populacije v ZDA po letih.\\
+
+Prav tako je narejen uvoz iz XML (s strani \url{http://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States}), ki se opravi ob zagonu programa uvoz.r. V tabelo sem dodal več spremenljivk, med njimi eno urejenostno in tri številske, ki se mi jih je zdelo pomembno 
+izpostaviti. Urejenostna spremenljivka je v stolpcu "Size", ki države glede na velikost razdeli na 3 kategorije. Dodal sem še gostoto prebivalstva (izračunana iz podatkov, ki sem jih že imel v tabeli), prav tako kot delež površine kopnega v državi in gostoto prebivalstva če namesto celotne površine države gledamo samo površino kopnega. To tabelo tudi uporabljam v nadaljnih fazah.\\
 
 V tej fazi sem še izdelal graf, natančneje histogram, držav glede na populacijo in glede na površino.
+Graf populacije je razvrščen po populaciji v padajočem vrstem redu, graf površine določenih držav pa je razvrščen po abecednem redu.
 Kot zanimivost je dodan tudi graf populacije celotne ZDA od leta 1935 pa do leta 2013. 
 
-Grafe poženemo z programom grafi.R ki je v mapi "Slike". Pdf sliki grafov sta shranjeni v 
-grafi.pdf ter grafi2.pdf in grafi3.pdf,  ki sta prav tako v mapi "Slike".
+Grafe poženemo z programom grafi.R, ki je v mapi Slike. Pdf slike grafov sta shranjeni v 
+grafi.pdf ter grafi2.pdf in grafi3.pdf.
+
+\pagebreak 
+
+Tabela ZDA vsebuje 11 stolpcev. Za vsako državo so podani naslednji podatki:
+
+\begin{itemize}
+  \item V stolpcu Abbr. se nahaja okrajšava za ime države. Spremenljivka je imenska.
+  \item V stolpcu Capital so podana glavna mesta, ki so prav tako imenska spremenljivka.
+  \item Stolpec Largest.city sestavljajo največja mesta posameznih držav. Spemenljivka je imenska.
+  \item V stolpcu Population..2013.est. so podatki o populaciji držav (poračunano v letu 2013), ki je številska spremenljivka.
+  \item Stolpec Total.area.in.mi2..km2 vsebuje podatek o velikosti države (v kvadratnih miljah). Ta spremenljivka je prav tako številska.
+  \item Stolpca Land.area.in.mi2..km2. in Water.area.in.mi2..km2. vsebujeta podatke o površini kopnega oz. vode v državah. Spremenljivki sta številski.
+  \item Stolpec Size, ki sem ga sam dodal, razvrsti države v 3 kategorije po površini (<50000 $mi^2$, med 50000 in 100000 $mi^2$ ter >100000 $mi^2$). Ta spremenljivka je urejenostna.
+  \item Spremenljivki Pop.Density in Pop.Density.per.Land.area povesta kako gosto je država poseljena, edina razlika med njima je, da ena gleda celotno površino, druga pa samo površino kopnega. Spremenljivki sta obe številski.
+  \item Zadnji stolpec je Percentage.of.Land.area, ki preprosto pove kolikšen del površine predstavlja kopno, spremenljivka je številska.
+\end{itemize}
+
+Tabela USA vsebuje samo 2 stolpca, v katerih so naslednji podatki:
+
+\begin{itemize}
+  \item Stolpec Year vsebuje letnice od 1935 pa do 2013, je številska spremenljivka.
+  \item Stolpec Population.x1000 ima podatke za populacije celotne ZDA za posamezno leto. Zaradi preglednosti so podatki deljeni s 1000. Spremenljivka je številska.
+\end{itemize}
+
+\pagebreak
 
 \includegraphics[width=\textwidth]{../slike/grafi2.pdf}
 
-V grafu je prikazano število prebivalstva za posamezne države v ZDA. Države so razporejene po količini prebivalstva v padajočem vrstenem redu.
+V grafu je prikazano število prebivalstva za posamezne države v ZDA. Države so razporejene po količini prebivalstva v padajočem vrstenem redu. Na grafu se lepo vidi kako 4 največje države "prehitevajo" ostale po populaciji.
 
 \includegraphics[width=\textwidth]{../slike/grafi.pdf}
 
-Graf velikosti posameznih zveznih držav (podan v kvadratnih miljah). Države si sledijo po abecednem vrstnem redu.
+Graf velikosti posameznih zveznih držav (podan v kvadratnih miljah). Države si sledijo po abecednem vrstnem redu. Po velikosti sta od drugih dosti večja Aljaska in Texas.
 
 \includegraphics[width=\textwidth]{../slike/grafi3.pdf}
 
-Graf predstavlja rast prebivalstva v ZDA v zadnjih 80-ih letih.
+Graf predstavlja prebivalstvo v ZDA v zadnjih 80-ih letih. Populacija je podana v milijonih.
 
 \pagebreak
 
