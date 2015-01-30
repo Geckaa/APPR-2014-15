@@ -1,13 +1,13 @@
 # 2. faza: Uvoz podatkov
 
- # Funkcija, ki uvozi podatke iz datoteke ZDA.csv
- uvoziDrzave <- function() {
-   return(read.table("podatki/ZDA_fixed.csv", sep = ";", as.is = TRUE, skip = 1,
-                     col.names = c("State", "Capital city", "Largest city", "Population", 
-                                   "Total area", "Land area", "Percentage of population", "Size"),
-                     fileEncoding = "Windows-1250"))
- }
- ZDA1 <- uvoziDrzave()
+# Funkcija, ki uvozi podatke iz datoteke ZDA.csv
+uvoziDrzave <- function() {
+  return(read.table("podatki/ZDA_fixed.csv", sep = ";", as.is = TRUE, skip = 1,
+                    col.names = c("State", "Capital city", "Largest city", "Population", 
+                                  "Total area", "Land area", "Percentage of population", "Size"),
+                    fileEncoding = "Windows-1250"))
+}
+ZDA1 <- uvoziDrzave()
 
 # Funkcija, ki uvozi podatke iz datoteke US_demographics.csv
 demographics <- function() {
@@ -15,7 +15,7 @@ demographics <- function() {
                     col.names = c("Year", "Population x1000"),
                     fileEncoding = "Windows-1250"))
 }
-USA_demographics <- demographics()
+USAdemographics <- demographics()
 
 source("lib/xml.r")
 ZDA <- uvozi.drzave()
