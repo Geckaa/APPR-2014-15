@@ -15,7 +15,7 @@ demographics <- function() {
                     col.names = c("Year", "Population x1000"),
                     fileEncoding = "Windows-1250"))
 }
-USA <- demographics()
+demographics <- demographics()
 
 source("lib/xml.r")
 ZDA <- uvozi.drzave()
