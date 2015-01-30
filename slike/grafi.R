@@ -20,8 +20,8 @@ pdf("slike/grafi3.pdf")
 
 #prikaz spremembe populacije po letih
 
-leto <- USA$Year
-pop <- USA$Population.x1000
+leto <- demographics$Year
+pop <- demographics$Population.x1000
 
 plot(leto, pop / 1000, 
      xlab = "Year", ylab = "Population x1000000", type = "h", lwd = 3.2, col = "steelblue")
