@@ -11,7 +11,7 @@ pdf("slike/grafi2.pdf")
 
 #grafični prikaz populacije za vse države
 
-barplot(ZDA_pop[1:51, c(5)] / 1000000, horiz=TRUE, names.arg = ZDA_po_pop.[1:51,1], cex.names=0.7, col = rainbow(50), xlab = "Population x 1000000", ylab = "States", las=1)
+barplot(ZDA_pop[1:51, c(5)]/1000000, horiz=TRUE, names.arg = ZDA_pop[1:51,1], cex.names=0.7, col = rainbow(50), xlab = "Population x 1000000", ylab = "States", las=1)
 
 dev.off()
 
