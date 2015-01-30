@@ -46,6 +46,6 @@ ZDA$Pop.Density.per.Land.area <- ZDA$Population..2013.est. / ZDA$Land.area.in.mi
 ZDA["Percentage.of.Land.area"] <- NA
 ZDA$Percentage.of.Land.area <-ZDA$Land.area.in.mi2..km2. / ZDA$Total.area.in.mi2..km2.
 
-#Tabela  v kateri so države namesto po ebecedi razporejene po populaciji
+#Tabela  v kateri so države namesto po abecedi razporejene po populaciji
 #To sem naredil da sem narisal graf kjer so države razporejene po populaciji namesti abecedi
 ZDA_pop. <- ZDA[order(ZDA$Population..2013.est., decreasing=TRUE),]
