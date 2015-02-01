@@ -3,6 +3,7 @@
 # Najprej je treba naloziti paketa za delo z zemljevidi.
 library(sp)
 library(maptools)
+library(rgeos)
 gpclibPermit()
 
 source("lib/uvozi.zemljevid.r")
