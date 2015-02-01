@@ -119,11 +119,21 @@ Poiskal sem datoteko, ki je vsebovala vse zvezne države in njihova pripadajoča
 
 \makebox[\textwidth][c]{
 \includegraphics[width=1.2\textwidth]{../slike/drzave_zda.pdf}
-
 }
+
 Pobarvan zemljevid zveznih držav s pripadajočimi glavnimi mesti.
 
 \newpage
 \section{Napredna analiza podatkov}
+
+Zanimalo me je kako je populacija ZDA naraščala v letih za katere imam podatke. Iz tega tudi želim napovedati kako bo populacija naraščala v prihodnje. \\
+Na grafu sem zapisal funkciji, populacije v odvisnosti od let, v primerih ko je odvisnost linearna in pa kvadratna. V vektor ostanki nam pove kako dobro je prileganje. Izračunanan je vsota kvadratov razdalj od napovedanih do dejanskih vrednosti. Kar pomeni, manjši kot je ostanek, boljše se naš model prilega dejanskemu grafu. Vidimo, da se model kvadratna boljše prilega našemu grafu. \\
+S temi podatki želimo napovedati populacijo v prihajajočih letih. Naš graf "raztegnemo" na x-osi, tako da zajame leta od 1935 pa vse do 2050. To pomeni, da napovedujemo za naslednjih 35 let.
+Z uporabo funkcije predict napišemo novo funkcijo, ki bo napovedala podatke v odvisnosti od modela, ki ga uporabimo.\\
+Izrišemo napoved za rast populacije po kvadratnem in linearnem modelu.
+
+\includegraphics[width=10cm]{../slike/napoved.pdf}
+
+Na grafu vidimo, da po modelu kvadratne odvisnosti (ki se bolj prilega danim podatkom) pričakujemo hitrejšo rast v prihajajočih letih, kot pa v linearni odvisnosti.
 
 \end{document}
