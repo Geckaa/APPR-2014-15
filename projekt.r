@@ -6,6 +6,4 @@ source("slike/grafi.R")
 source("vizualizacija/vizualizacija.r")
 
 # 4. faza: Napredna analiza podatkov
-#source("analiza/analiza.r")
-
-cat("Končano.\n")
+source("analiza/analiza.r")
