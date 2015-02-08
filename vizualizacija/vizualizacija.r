@@ -24,7 +24,8 @@ pop <- ZDA[m,4] # populacija je v 4. stolpcu
 n <- 4 # 4 kategorije
 q <- quantile(pop, (1:n)/n, na.rm = TRUE)
 barve <- topo.colors(n)
-plot(states, border = "dimgray", col = barve[sapply(pop, function(x) which(x <= q)[1])])
+plot(states, border = "dimgray", col = barve[sapply(pop, function(x) which(x <= q)[1])],
+     main = "ZDA deljena v skupine glede na populacijo")
 
 legend("bottomleft",
        legend=c("Največja populacija", "Visoka populacija", "Nizka populacija", "Najnižja populacija"), col=c("yellow","green","cyan","blue"),
