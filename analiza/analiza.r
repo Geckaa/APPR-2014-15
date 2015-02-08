@@ -106,18 +106,25 @@ skupina <- rezultati$cluster
 
 pdf("slike/clustering_1.pdf")
 
-plot(data[c("Population.2013", "Pop.Density")], col = skupina)
+
+plot(data[c( "Population.2013", "Pop.Density")], col = skupina,
+     xlab = "Populacija", ylab = "Gostota prebivalstva",
+     main = "Grupiranje - Odvisnost gostote od populacije")
 
 dev.off()
 
 pdf("slike/clustering_2.pdf")
 
-plot(data[c("Population.2013", "Total.area.in.mi2")], col = skupina)
+plot(data[c( "Total.area.in.mi2", "Population.2013")], col = skupina,
+     xlab = "Velikost", ylab = "Populacija",
+     main = "Grupiranje - Odvisnot populacije od velikosti države")
 
 dev.off()
 
 pdf("slike/clustering_3.pdf")
 
-plot(data[c("Total.area.in.mi2", "Pop.Density")], col = skupina)
+plot(data[c("Total.area.in.mi2", "Pop.Density")], col = skupina,
+     xlab = "Velikost", ylab = "Gostota prebivalstva",
+     main = "Grupiranje - Odvisnost gostote od velikosti države")
 
 dev.off()
