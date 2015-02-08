@@ -53,3 +53,7 @@ ZDA <- data.frame(ZDA, Size)
 #Tabela  v kateri so države namesto po abecedi razporejene po populaciji
 #To sem naredil da sem narisal graf kjer so države razporejene po populaciji namesti abecedi
 ZDA_pop <- ZDA[order(ZDA$Population.2013, decreasing=TRUE),]
+
+#Tabela  v kateri so države namesto po abecedi razporejene po velikosti
+#To sem naredil da sem narisal graf kjer so države razporejene po velikosti namesti abecedi
+ZDA_area <- ZDA[order(ZDA$Total.area.in.mi2, decreasing=TRUE),]
