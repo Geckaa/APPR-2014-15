@@ -98,29 +98,26 @@ data$Water.area.in.mi2<- NULL
 data$Pop.Density.per.Land.area <- NULL 
 data$Size<- NULL 
 
-data$Total.area.in.mi2 <- NULL
-data$Percentage.of.Land.area <- NULL
-
 #Rišemo graf odvisnoti gostote prebivalstva od števila prebivalcev za posamezne države
 
-pdf("slike/clustering.pdf")
-plot(data, xlab = "Population", ylab = "Density",
-     main = "Grupiranje držav po populaciji in gostoti prebivalstva")
+rezultati <- kmeans(data, centers = 4)
+center <- rezultati$centers
+skupina <- rezultati$cluster
 
-means <- kmeans(data, centers = 3)
-center <- means$centers
-skupina <- means$cluster
+pdf("slike/clustering_1.pdf")
 
-#1. skupina je rdeče barve
-points(data[skupina == 1, ],
-       col = "red")
-#2. skupina je modre barve
-points(data[skupina == 2, ],
-       col = "blue")
-#3. skupina je črne barve
-points(data[skupina == 3, ],
-       col = "black")
-#Cebtri vseh treh skupin so ponazorjeni z zelenim trikotnikom
-points(center, pch = 2, col = "green")
+plot(data[c("Population.2013", "Pop.Density")], col = skupina)
+
+dev.off()
+
+pdf("slike/clustering_2.pdf")
+
+plot(data[c("Population.2013", "Total.area.in.mi2")], col = skupina)
+
+dev.off()
+
+pdf("slike/clustering_3.pdf")
+
+plot(data[c("Total.area.in.mi2", "Pop.Density")], col = skupina)
 
 dev.off()
