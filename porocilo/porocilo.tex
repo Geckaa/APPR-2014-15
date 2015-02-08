@@ -82,7 +82,7 @@ Tabela ZDA vsebuje 11 stolpcev. Za vsako državo so podani naslednji podatki:
   \item V stolpcu Population..2013.est. so podatki o populaciji držav (poračunano v letu 2013), ki je številska spremenljivka.
   \item Stolpec Total.area.in.mi2..km2 vsebuje podatek o velikosti države (v kvadratnih miljah). Ta spremenljivka je prav tako številska.
   \item Stolpca Land.area.in.mi2..km2. in Water.area.in.mi2..km2. vsebujeta podatke o površini kopnega oz. vode v državah. Spremenljivki sta številski.
-  \item Stolpec Size, ki sem ga sam dodal, razvrsti države v 3 kategorije po površini (<50000 $mi^2$, med 50000 in 100000 $mi^2$ ter >100000 $mi^2$). Ta spremenljivka je urejenostna.
+  \item Stolpec Size, ki sem ga sam dodal, razvrsti države v 3 kategorije po površini ($<50000 mi^2$, med 50000 in 100000 $mi^2$ ter $>100000 mi^2$). Ta spremenljivka je urejenostna.
   \item Spremenljivki Pop.Density in Pop.Density.per.Land.area povesta kako gosto je država poseljena, edina razlika med njima je, da ena gleda celotno površino, druga pa samo površino kopnega. Spremenljivki sta obe številski.
   \item Zadnji stolpec je Percentage.of.Land.area, ki preprosto pove kolikšen del površine predstavlja kopno, spremenljivka je številska.
 \end{itemize}
@@ -107,21 +107,24 @@ Graf velikosti posameznih zveznih držav (podan v kvadratnih miljah). Države si
 \includegraphics[width=\textwidth]{../slike/grafi3.pdf}
 
 Graf predstavlja prebivalstvo v ZDA v zadnjih 80-ih letih. Populacija je podana v milijonih.
+V zadnjih 80ih letih je število prebivalstva raslo precej enakomerno, razen v letu 1945, kar pa lahko predvidevamo da je posledica II. svetovne vojne.
 
 \pagebreak
 
 \section{Analiza in vizualizacija podatkov}
 
 Odločil sem se, da bom na začetku države analiziral zgolj glede na število prebivalcev. Uvozil sem zemljevid zveznih držav(datoteka dostopna na \url{http://biogeo.ucdavis.edu/data/gadm2/shp/USA_adm.zip}). Če bi izrisal zemljevid vseh zveznih držav (vključno z Aljasko in Havaji) ne bi bilo dobro. Torej sem se odločil, da izpustim Aljasko, Havaje Porto Rico in Deviške otoke zaradi
-preglednosti. V tej fazi sem izrisal zemljevid, ki je izrisal zgolj meje posameznih držav.
-Zemljevid sem pobarval s štirimi barvami. Države so glede na populacijo razdeljene na štiri enako velike skupine, vsaka od teh skupin pa je svoje barve.
-Poiskal sem datoteko, ki je vsebovala vse zvezne države in njihova pripadajoča glavna mesta, podana z zemljepisno dolžino in širino. Ti podatki so shranjeni v Excelovi datoteki uscapitals.csv. To mi je omogočilo, da sem na zemljevidu označil glavna mesta vseh držav, zraven jim pa še pripisal imena. Zaradi boljše preglednosti sem v manjših državah izpustil izpis glavnega mesta, in kot indikator ostaja zgolj točka, kje se to nahaja. To sem storil tako, da sem v CSV datoteki namesto glavnega mesta naredil prazen prostor.
+preglednosti. \\
+V tej fazi sem izrisal zemljevid, ki je izrisal zgolj meje posameznih držav.
+Zemljevid je pobarvan s štirimi barvami. Države so glede na populacijo razdeljene na štiri enako velike skupine, vsaka od teh skupin pa je svoje barve.\\
+Poiskal sem datoteko, ki je vsebovala vse zvezne države in njihova pripadajoča glavna mesta. Glavna mesta so podana z zemljepisno dolžino in širino. Ti podatki so shranjeni v Excelovi datoteki uscapitals.csv. To mi je omogočilo, da sem na zemljevidu označil glavna mesta vseh držav in jim pripisal imena. \\
+V nekaterih manjših državah sem izpustil ime glavnega mesta, saj je prišlo do prekrivanja imen. Če bi še zmanjšal samo velikost imen, jih ne bi bilo možno več razbrati, zato jih je bilo treba izpustiti. Ne glede na to, da ime glavnega mesta ni več napisano pa je točka, kjer se glavno mesta nahaja še vedno vključena na zemjevid. Imena glavnih mest sem pa izpustil tako, da sem v CSV datoteki za te države namesto imena glavnega mesta naredil prazen prostor.
 
 \makebox[\textwidth][c]{
 \includegraphics[width=1.2\textwidth]{../slike/drzave_zda.pdf}
 }
 
-Pobarvan zemljevid zveznih držav s pripadajočimi glavnimi mesti.
+Pobarvan zemljevid zveznih držav s pripadajočimi glavnimi mesti. Kot lahko vidimo, velikost države ni direktno povezana z njeno populacijo, saj imajo ene izmed večjih držav populacijo v zadnji (najmanjši) skupini.
 
 \newpage
 \section{Napredna analiza podatkov}
@@ -132,8 +135,26 @@ S temi podatki želimo napovedati populacijo v prihajajočih letih. Naš graf "r
 Z uporabo funkcije predict napišemo novo funkcijo, ki bo napovedala podatke v odvisnosti od modela, ki ga uporabimo.\\
 Izrišemo napoved za rast populacije po kvadratnem in linearnem modelu.
 
-\includegraphics[width=10cm]{../slike/napoved.pdf}
+\includegraphics[width=10.5cm]{../slike/napoved.pdf}
 
-Na grafu vidimo, da po modelu kvadratne odvisnosti (ki se bolj prilega danim podatkom) pričakujemo hitrejšo rast v prihajajočih letih, kot pa v linearni odvisnosti.
+Na grafu je z rdečo označena pričakovana rast prebivalstva po kvadratni metodi, z modro pa pričakovana rast po linearni metodi. Kot vidimo, se kvadratna našim podatkom boljše prilega in napoveduje hitrejšo rast v prihodnje.\\
+
+Naprej me je zanimalo kje v Ameriki so bolj gosto poseljena območja. Prav zaradi tega sem v tabelo dodal stolpev Pop.Denstity. Ker me v tej fazi ne zanima gostota prebivalstva v določeni državi na samem zemljevidu ni nobenih imeh. Narisal sem še en zemljevid ZDA in ga pobarval v skladu z gostoto prebivalstva v državah.
+
+\makebox[\textwidth][c]{
+\includegraphics[width=1.2\textwidth]{../slike/gostota.pdf}
+}
+
+Graf je pobarvan glede na gostoto prebivalstva v državah. Temnejša območja predstavljajo bolj poseljena območja. Vidimo, da so bolj poseljena območja skoraj izključno na obalah. Vzhodna obala je najgosteje poseljena. Na strani Wikipedie (\url{http://en.wikipedia.org/wiki/East_Coast_of_the_United_States}) je navedeno, da v državah, ki imajo obalo na vzhodnem delu živi dobra tretjina celotnega prebivalstva.\\
+
+Naslednja stvar, ki sem jo opravil, je bil k-means clustering. Uporabil sem podatke o populaciji in gostoti prebivalstva. Uporabil sem funkcijo kmeans, in za število središč sem si izbral 3.
+V spremenljivki center in skupina sem shranil vrednosti, ki jih po k-means clustering-u središča zavzamejo in pa v katero skupino vsaka država pripada.\\
+
+\includegraphics[width=11cm]{../slike/skupine} \\
+
+Narisal sem graf gostote prebivalstva v odvisnosti od populacije države. Ko sem imel poračunane podatke katera država spada v katero skupino sem vsako skupino na grafu pobarval s svojo barvo. Z dodatno barvo sem označil še središče vsake skupine na grafu.\\
+
+\includegraphics[width=10.5cm]{../slike/clustering.pdf}
+
 
 \end{document}
