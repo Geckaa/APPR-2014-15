@@ -122,28 +122,29 @@ data1 <- scale(data)
 rezultati <- kmeans(data1, centers = 4)
 center <- rezultati$centers
 skupina <- rezultati$cluster
+barve <- c("red", "green", "blue", "yellow")
 
 pdf("slike/clustering_1.pdf")
 
 
-plot(data[c("Population.2013", "Pop.Density")], col = skupina,
-     xlab = "Populacija", ylab = "Gostota prebivalstva",
+plot(data[,"Population.2013"]/1000000,data[,"Pop.Density"], col = barve[skupina],
+     xlab = "Populacija v milijonih", ylab = "Gostota prebivalstva",
      main = "Grupiranje - Odvisnost gostote od populacije")
 
 dev.off()
 
 pdf("slike/clustering_2.pdf")
 
-plot(data[c("Total.area.in.mi2", "Population.2013")], col = skupina,
-     xlab = "Velikost", ylab = "Populacija",
+plot(data[,"Total.area.in.mi2"]/1000, data[,"Population.2013"]/1000000, col = barve[skupina],
+     xlab = "Velikost x 1000 (mi^2)", ylab = "Populacija v milijonih",
      main = "Grupiranje - Odvisnot populacije od velikosti države")
 
 dev.off()
 
 pdf("slike/clustering_3.pdf")
 
-plot(data[c("Total.area.in.mi2", "Pop.Density")], col = skupina,
-     xlab = "Velikost", ylab = "Gostota prebivalstva",
+plot(data[,"Total.area.in.mi2"]/1000, data[,"Pop.Density"], col = barve[skupina],
+     xlab = "Velikost x 1000 (mi^2)", ylab = "Gostota prebivalstva",
      main = "Grupiranje - Odvisnost gostote od velikosti države")
 
 dev.off()
@@ -158,7 +159,7 @@ USA <- uvozi.zemljevid("http://audrey.fmf.uni-lj.si/states_21basic.zip",
 nocemo <- c("Alaska", "Hawaii", "Puerto Rico", "U.S. Virgin Islands")
 states <- USA[!(USA$STATE_NAME %in% nocemo),]
 
-plot(states, col = skupina)
+plot(states, col = barve[skupina])
 title( main = "Države razdeljene po skupinah glede na k-means clustering")
 
 dev.off()
