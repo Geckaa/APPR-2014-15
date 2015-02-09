@@ -9,6 +9,8 @@ pop <- demographics$Population.x1000 / 1000
 
 plot(leto, pop, xlab = "Leto", ylab = "Populacija x 1000000")
 
+legend(40, 300, c("Linerana", "Kvadratna"), lty=c(1,1), col = c("blue","red"))
+
 #Npišemo funkcijo za linearno rast
 
 linearna <- lm(pop ~ leto)
@@ -17,14 +19,15 @@ abline(linearna, col="blue")
 #Preverimo če je populacija kvadratna funkcija
 
 kvadratna <- lm(pop ~ I(leto^2) + leto)
-curve(predict(kvadratna, data.frame(leto=x)), add = TRUE, col = "red")   
+curve(predict(kvadratna, data.frame(leto=x)), add = TRUE, col = "red")  
 
 #Loess model za primerjavo (model loess uporablja lokalno prilagajanje)
 
 loess <- loess(pop ~ leto)
 
 #Pogledamo ostanke pri modelih. Tisti, ki ima manjši ostanek je bolj natančen
-ostanki <- sapply(list(linearna, kvadratna, loess), function(x) sum(x$residuals^2))
+
+vsota.kvadratov <- sapply(list(linearna, kvadratna, loess), function(x) sum(x$residuals^2))
 
 dev.off()
 
@@ -35,11 +38,28 @@ pdf("slike/napoved.pdf")
 plot(demographics$Year, pop, xlim = c(1935, 2050), ylim = c(120, 450), 
      xlab = "Leto", ylab = "Populacija (v mil)",
      main = "Predvidena rast prebivalstva po različnih modelih")     
+abline(h = 400,col = "black", lwd = 1.5, lty = 1)
+
+#Presečišča izračunamo na roko
+
+points(2040, 400,  col = "black", pch = 21)
+points(2048, 400,  col = "black", pch = 21)
+
+#V presečiščih potegnemo navpične črte
+
+abline(v=2040, col = "magenta", lty = 1)
+abline(v=2048, col = "magenta", lty = 1)
+
 
 napoved <- function(x,model){predict(model, data.frame(leto=x-1900))}
 
-curve(napoved(x, linearna), add= TRUE, col = "blue")
-curve(napoved(x, kvadratna), add = TRUE, col = "red")
+curve(napoved(x, linearna), add= TRUE, lwd = 1.5, col = "blue")
+curve(napoved(x, kvadratna), add = TRUE, lwd = 1.5, col = "red")
+
+#Narišemo še legendo
+legend(1932, 380, c("Linerana (lm(pop ~ leto))", "Kvadratna (lm(pop ~ I(leto^2) + leto))",
+                    "400 miljonov prebivalcev"),
+       lty=c(1,1), col = c("blue","red", "black"))
 
 dev.off()
 
@@ -77,7 +97,8 @@ stopnje <- seq(min.gostota, max.gostota, (max.gostota - min.gostota)/(k-1))
 norm.stopnje <- (stopnje - min.gostota)/(max.gostota - min.gostota)
 barve.stopnje <- rgb(1, 0, 0, sqrt(norm.stopnje))
 
-plot(states, col = barve[m], main = "Gostota prebivalstva podana v 1/mi^2")
+plot(states, col = barve[m])
+title( main = "Gostota prebivalstva podana v 1/mi^2")
 
 legend("bottomleft", legend = round(stopnje), fill = barve.stopnje, cex = 0.7)
 
@@ -86,28 +107,26 @@ dev.off()
 
 
 #k-means clustering
-#Iz tabelele ZDA poberemo vse imenske spremenljivke (Abbr, Capital, Largest.City, Size) in
-#podatke, ki bi jih po nepotrebnem uporabili, saj dobimo isto brez da bi jih uporabili
+#Iz tabelele ZDA poberemo vse imenske spremenljivke (Abbr, Capital, Largest.City, Size)
 
 data <- ZDA
 data$Abbr <- NULL 
 data$Capital<- NULL 	
 data$Largest.City <- NULL 
-data$Land.area.in.mi2<- NULL   
-data$Water.area.in.mi2<- NULL  
-data$Pop.Density.per.Land.area <- NULL 
 data$Size<- NULL 
 
-#Rišemo graf odvisnoti gostote prebivalstva od števila prebivalcev za posamezne države
+data1 <- scale(data)
 
-rezultati <- kmeans(data, centers = 4)
+#Narišemo nekaj grafov
+
+rezultati <- kmeans(data1, centers = 4)
 center <- rezultati$centers
 skupina <- rezultati$cluster
 
 pdf("slike/clustering_1.pdf")
 
 
-plot(data[c( "Population.2013", "Pop.Density")], col = skupina,
+plot(data[c("Population.2013", "Pop.Density")], col = skupina,
      xlab = "Populacija", ylab = "Gostota prebivalstva",
      main = "Grupiranje - Odvisnost gostote od populacije")
 
@@ -115,7 +134,7 @@ dev.off()
 
 pdf("slike/clustering_2.pdf")
 
-plot(data[c( "Total.area.in.mi2", "Population.2013")], col = skupina,
+plot(data[c("Total.area.in.mi2", "Population.2013")], col = skupina,
      xlab = "Velikost", ylab = "Populacija",
      main = "Grupiranje - Odvisnot populacije od velikosti države")
 
@@ -126,5 +145,20 @@ pdf("slike/clustering_3.pdf")
 plot(data[c("Total.area.in.mi2", "Pop.Density")], col = skupina,
      xlab = "Velikost", ylab = "Gostota prebivalstva",
      main = "Grupiranje - Odvisnost gostote od velikosti države")
+
+dev.off()
+
+#Narišemo še zemljevid in ga pobarvamo po skupinah
+
+pdf("slike/zemljevid_grupe.pdf")
+
+USA <- uvozi.zemljevid("http://audrey.fmf.uni-lj.si/states_21basic.zip",
+                       "USA", "states.shp", mapa = "zemljevid")
+                       
+nocemo <- c("Alaska", "Hawaii", "Puerto Rico", "U.S. Virgin Islands")
+states <- USA[!(USA$STATE_NAME %in% nocemo),]
+
+plot(states, col = skupina)
+title( main = "Države razdeljene po skupinah glede na k-means clustering")
 
 dev.off()
