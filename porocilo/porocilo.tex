@@ -126,37 +126,56 @@ V nekaterih manjših državah sem izpustil ime glavnega mesta, saj je prišlo do
 
 Pobarvan zemljevid zveznih držav s pripadajočimi glavnimi mesti. Kot lahko vidimo, velikost države ni direktno povezana z njeno populacijo, saj imajo ene izmed večjih držav populacijo v zadnji (najmanjši) skupini.
 
-\newpage
+\pagebreak
 \section{Napredna analiza podatkov}
 
-Zanimalo me je kako je populacija ZDA naraščala v letih za katere imam podatke. Iz tega tudi želim napovedati kako bo populacija naraščala v prihodnje. \\
-Na grafu sem zapisal funkciji, populacije v odvisnosti od let, v primerih ko je odvisnost linearna in pa kvadratna. V vektor ostanki nam pove kako dobro je prileganje. Izračunanan je vsota kvadratov razdalj od napovedanih do dejanskih vrednosti. Kar pomeni, manjši kot je ostanek, boljše se naš model prilega dejanskemu grafu. Vidimo, da se model kvadratna boljše prilega našemu grafu. \\
-S temi podatki želimo napovedati populacijo v prihajajočih letih. Naš graf "raztegnemo" na x-osi, tako da zajame leta od 1935 pa vse do 2050. To pomeni, da napovedujemo za naslednjih 35 let.
+Zanimalo me je kako je populacija ZDA naraščala v letih za katere imam podatke in iz tega bi želel ustvariti napoved kako bo populacija naraščala v prihodnje. \\
+Iz danih podatkov sem sestavil dva modela, po katerih bi bilo možno da bi populacija naraščala. To sta linearni in kvadratni model. Želeli bi vedeti kateri izmed njiju se boljše prilega našim podatkom. To lahko opravimo na dva načina: z izračunom kateri se boljše prilega (točna metoda), lahko bi pa sklepali tudi s samega grafa (lahko "preverimo").\\
+Na tem mestu bomo izračunali odstopanja napovedanih vrednosti od dejanskih. V vektor vsota.kvadratov shranimo vrednosti. Te vrednosti so preračunane vsote kvadratov razdalj od napovedanih do dejanskih vrednosti. Model z manjšo vsoto kvadratov bo tisti, ki se našim podatkom boljše prilega. Linearni model vrne vrednost približno 873, medtem ko kvadratni model vrne vrednost slabih 422.  \\
+
+
+\includegraphics[width=10.5cm]{../slike/populacija.pdf}\\
+
+Na grafu vidimo, da se obe funkciji našim podatkom dokaj dobro prilegata, le da se kvadratna bolj prilega v robnih vrednostih, zaradi česar lahko rečemo, da je kvadratna tista, ki se boljše prilega. To se sklada tudi z izračunanimi vrednostmi.
+\pagebreak
+
+S temi podatki želimo napovedati populacijo v prihajajočih letih. Naš graf "raztegnemo" na x-osi, tako da zajame leta od 1935 pa vse do 2050. To pomeni, da napovedujemo za naslednjih 35 let. \\
 Z uporabo funkcije predict napišemo novo funkcijo, ki bo napovedala podatke v odvisnosti od modela, ki ga uporabimo.\\
-Izrišemo napoved za rast populacije po kvadratnem in linearnem modelu.
+Napovemo rast populacije po kvadratnem in linearnem modelu.\\
+Zanimalo me je tudi kdaj bo prebivalstvo doseglo 400 milijonov. Zato sem na grafu dodal črto pri y = 400. Poiskal sem presečišča modelov s funkcijo y = 400 (s funkcijo 
+.\$coefficients sem poiskal enačbo vsake od teh dveh krivulj in potem sistem na roko preračunal) in prišel do napovedi, da bi po kvadratnem modelu moralo to nastopiti v letu 2040, po linearnem modelu pa dobrih 7 let kasneje, torej leta 2047. \\
 
-\includegraphics[width=10.5cm]{../slike/napoved.pdf}
+\includegraphics[width=\textwidth]{../slike/napoved.pdf}
 
-Na grafu je z rdečo označena pričakovana rast prebivalstva po kvadratni metodi, z modro pa pričakovana rast po linearni metodi. Kot vidimo, se kvadratna našim podatkom boljše prilega in napoveduje hitrejšo rast v prihodnje.\\
-
-Naprej me je zanimalo kje v Ameriki so bolj gosto poseljena območja. Prav zaradi tega sem v tabelo dodal stolpev Pop.Denstity. Ker me v tej fazi ne zanima gostota prebivalstva v določeni državi na samem zemljevidu ni nobenih imeh. Narisal sem še en zemljevid ZDA in ga pobarval v skladu z gostoto prebivalstva v državah.
+Že od začetka me je zanimalo kje v Ameriki so bolj gosto poseljena območja. Ker me v tej fazi zanima zgolj kje se nahajajo območja večje poseljenosti na samem zemljevidu ni nobenih imeh. Narisal sem še en zemljevid ZDA in ga pobarval v skladu z gostoto prebivalstva v državah. \pagebreak
 
 \makebox[\textwidth][c]{
 \includegraphics[width=1.2\textwidth]{../slike/gostota.pdf}
 }
 
-Graf je pobarvan glede na gostoto prebivalstva v državah. Temnejša območja predstavljajo bolj poseljena območja. Vidimo, da so bolj poseljena območja skoraj izključno na obalah. Vzhodna obala je najgosteje poseljena. Na strani Wikipedie (\url{http://en.wikipedia.org/wiki/East_Coast_of_the_United_States}) je navedeno, da v državah, ki imajo obalo na vzhodnem delu živi dobra tretjina celotnega prebivalstva.\\
+Graf je pobarvan glede na gostoto prebivalstva v državah. Temnejša območja predstavljajo bolj poseljena območja. Vidimo, da so bolj poseljena območja skoraj izključno na obalah. Vzhodna obala je najgosteje poseljena. Na strani Wikipedie (\url{http://en.wikipedia.org/wiki/East_Coast_of_the_United_States}) je navedeno, da v državah, ki imajo obalo na vzhodnem delu živi dobra tretjina celotnega prebivalstva.\pagebreak
 
-Naslednja stvar, ki sem jo opravil, je bil k-means clustering. Uporabil sem podatke o populaciji gostoti prebivalstva, površini države in deležu kopnega za posamezno državo. Uporabil sem funkcijo kmeans, in za število skupin sem si izbral 4.
+Naslednja stvar, ki sem jo opravil, je bil k-means clustering. Ker za to opravilo imenskih oziroma urejenostnih spremenljivk ne potrebujemo sem napravil novo tabelo, kjer sem v originalni tabeli vse te podatke izpustil.\\
+Uporabil sem funkcijo kmeans, in za število skupin sem si izbral štiri.
 V spremenljivki center in skupina sem shranil vrednosti, ki jih po k-means clustering-u središča zavzamejo in pa v katero skupino vsaka država pripada.\\
 
-Narisal sem 3 grafe, lahko bi jih več, ampak so me te tri stvari najbolj zanimale. V vsakem grafu so zaradi izbire 4 središč tudi štiri skupine podatkov. Vsaka skupina je pobarvana s svojo barvo.\\
+Narisal sem 3 grafe, lahko bi jih več, ampak so me te tri stvari najbolj zanimale. V vsakem grafu so zaradi izbire štirih središč tudi štiri skupine podatkov. Vsaka skupina je pobarvana s svojo barvo.\\
 
-\includegraphics[width=\textwidth]{../slike/clustering_1.pdf}\\
+\includegraphics[width=12cm]{../slike/clustering_1.pdf}\\
 
-\includegraphics[width=\textwidth]{../slike/clustering_2.pdf}\\
+Vidimo da izstopajo države z večjo populacijo in manjšo/normalno gostoto prebivalstva, ter države z manjšo/normalno populacijo in večjo gostoto prebivalstva.
 
-\includegraphics[width=\textwidth]{../slike/clustering_3.pdf}\\
+\includegraphics[width=10cm]{../slike/clustering_3.pdf}\\
 
+\includegraphics[width=10cm]{../slike/clustering_2.pdf}
+\pagebreak
+
+Iz prejšnjih dveh grafov lahko vidimo, da so v eni skupini države z manjšo površino, skupino ki prav tako odstopa od povprečja pa sestavljajo države, ki so ali večje in bolj populirane, ali pa večje in poseljene bolj na gosto. \\
+
+\makebox[\textwidth][c]{
+\includegraphics[width=1.2\textwidth]{../slike/zemljevid_grupe.pdf}
+}
+
+Na zemljevidu lahko vidimo, da je edino zvezna država Montana pobarvana s svojo barvo. Po podatkih pridobljenih na spletni strani \url{http://en.wikipedia.org/wiki/Montana}, vidimo da je po površini zagotovo med največjimi (po vrsti je namreč 4.), po populaciji in gostoti prebivastvy pa spada med najmanjše oziroma najredkeje poseljene države (44. po populaciji in 48. po gostoti prebivalstva). Države smo glede na podatke razdelili na sorodne. Sklepamo, da na to delitev geografska lega nima ravno močnega vpliva, saj ista barva ni omejena le na določeno območje.
 
 \end{document}
