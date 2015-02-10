@@ -129,7 +129,7 @@ pdf("slike/clustering_1.pdf")
 
 plot(data[,"Population.2013"]/1000000,data[,"Pop.Density"], col = barve[skupina],
      xlab = "Populacija v milijonih", ylab = "Gostota prebivalstva",
-     main = "Grupiranje - Odvisnost gostote od populacije")
+     main = "Razvrščanje - Odvisnost gostote od populacije")
 
 dev.off()
 
@@ -137,7 +137,7 @@ pdf("slike/clustering_2.pdf")
 
 plot(data[,"Total.area.in.mi2"]/1000, data[,"Population.2013"]/1000000, col = barve[skupina],
      xlab = "Velikost x 1000 (mi^2)", ylab = "Populacija v milijonih",
-     main = "Grupiranje - Odvisnot populacije od velikosti države")
+     main = "Razvrščanje - Odvisnot populacije od velikosti države")
 
 dev.off()
 
@@ -145,7 +145,7 @@ pdf("slike/clustering_3.pdf")
 
 plot(data[,"Total.area.in.mi2"]/1000, data[,"Pop.Density"], col = barve[skupina],
      xlab = "Velikost x 1000 (mi^2)", ylab = "Gostota prebivalstva",
-     main = "Grupiranje - Odvisnost gostote od velikosti države")
+     main = "Razvrščanje - Odvisnost gostote od velikosti države")
 
 dev.off()
 
