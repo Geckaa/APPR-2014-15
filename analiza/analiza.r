@@ -98,7 +98,7 @@ norm.stopnje <- (stopnje - min.gostota)/(max.gostota - min.gostota)
 barve.stopnje <- rgb(1, 0, 0, sqrt(norm.stopnje))
 
 plot(states, col = barve[m])
-title( main = "Gostota prebivalstva podana v 1/mi^2")
+title( main = expression(paste("Gostota prebivalstva podana v ", 1/mi^2)))
 
 legend("bottomleft", legend = round(stopnje), fill = barve.stopnje, cex = 0.7)
 
@@ -160,6 +160,6 @@ nocemo <- c("Alaska", "Hawaii", "Puerto Rico", "U.S. Virgin Islands")
 states <- USA[!(USA$STATE_NAME %in% nocemo),]
 
 plot(states, col = barve[skupina])
-title( main = "Države razdeljene po skupinah glede na k-means clustering")
+title( main = "Države razdeljene po skupinah glede na k-means razvrščanje")
 
 dev.off()
